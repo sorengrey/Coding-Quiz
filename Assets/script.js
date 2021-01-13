@@ -62,7 +62,7 @@ function setTimer() {
   time.innerHTML = "Time: " + secondsLeft;
   if(secondsLeft === 0){
     clearInterval(timerInterval);
-    window.location.href = 'highscores.html';}
+    window.location.href = 'https://sorengrey.github.io/code-quiz/Assets/highscores.html';}
 }, 1000);
 }
 
