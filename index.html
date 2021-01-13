@@ -9,15 +9,146 @@
 </head>
 
 <body>
-  <nav class="nav">
-  <a class="nav-link" href="Assets/highscores.html" id="highlink">View Highscores</a>
+
+  <nav class= "navbar">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="Assets/highscores.html">View Highscores</a>
+        </li>
+      </ul>
+      <div class="navbar-text" id="timer">
+        Time: 75
+      </div>
+    </div>
   </nav>
- 
 
   <h1 id="quiz-title">Coding Quiz Challenge</h1>
+  <br>
+
+  <p id="intro">Try to answer the following code-related questions within the time limit.
+  <br>
+  Keep in mind incorrect answers will penalize your scoretime by ten seconds!</p>
+
+  <div class="container" id="start-quiz">
+    <div class="row">
+      <div class="col text-center">
+    <button type="button" class="btn btn-primary align-items-center" id="startbutton">Start Quiz</button>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- the questions container -->
+  <div class="container-sm align-items-center" id="questions">
+  <!-- JavaScript functionality -->
+    <script>
+
+      function createButtons(){
+        var ques = document.getElementById("questions");
+        ques.innerHTML = questionArray[i];
+
+        var btn1 = document.createElement("BUTTON");
+        btn1.innerHTML = buttonAnswers[0][0];
+        document.body.appendChild(btn1);
+
+        var btn2 = document.createElement("BUTTON");
+        btn2.innerHTML = buttonAnswers[0][1];
+        document.body.appendChild(btn2);
+
+        var btn3 = document.createElement("BUTTON");
+        btn3.innerHTML = buttonAnswers[0][2];
+        document.body.appendChild(btn3);
+
+        var btn4 = document.createElement("BUTTON");
+        btn4.innerHTML = buttonAnswers[0][3];
+        document.body.appendChild(btn4);
+      }
+
+      function startQuestions(i){
+        var ques = document.getElementById("questions");
+        ques.innerHTML = questionArray[i];
+        
+        var btn1 = document.createElement("BUTTON");
+         btn1.innerHTML = buttonAnswers[i][0];
+        document.body.appendChild(btn1);
+
+        var btn2 = document.createElement("BUTTON");
+        btn2.innerHTML = buttonAnswers[i][1];
+        document.body.appendChild(btn2);
+
+        var btn3 = document.createElement("BUTTON");
+        btn3.innerHTML = buttonAnswers[i][2];
+        document.body.appendChild(btn3);
+
+        var btn4 = document.createElement("BUTTON");
+        btn4.innerHTML = buttonAnswers[i][3];
+        document.body.appendChild(btn4);
+
+        btn4.onclick = function(){
+          console.log(btn4.innerHTML)
+          return btn4.innerHTML;
+        
+     // document.getElementById("demo").innerHTML = "Question 2"; 
+    //  return false; -->
+        }
+    };
+
+      
+    </script>
 
 
+
+
+
+
+
+
+
+
+
+
+
+        <!--
+      <div id="question1"><h4>Commonly used data types DO NOT include:</h4><br>
+        <button type="button" class="btn btn-primary align-items-center">1: strings</button><br>
+        <button type="button" class="btn btn-primary align-items-center">2: booleans</button><br>
+        <button type="button" class="btn btn-primary align-items-center">3: alerts</button><br>
+        <button type="button" class="btn btn-primary align-items-center">4: numbers</button><br>
+        </div>
+    
+  <div id="question2"><h4>The condition in an if/else statement is enclosed within ___:</h4><br>
+        <button type="button" class="btn btn-primary align-items-center">1: quotes</button><br>
+        <button type="button" class="btn btn-primary align-items-center">2: parenthesis</button><br>
+        <button type="button" class="btn btn-primary align-items-center">3: curly brackets</button><br>
+        <button type="button" class="btn btn-primary align-items-center">4: square brackets</button><br>
+      </div>
+  
+  <div id="question3"><h4>Arrays in JavaScript can be used to store ___.</h4><br>
+        <button type="button" class="btn btn-primary align-items-center">1: numbers and strings</button><br>
+        <button type="button" class="btn btn-primary align-items-center">2: other arrays</button><br>
+        <button type="button" class="btn btn-primary align-items-center">3: booleans</button><br>
+        <button type="button" class="btn btn-primary align-items-center">4: all of the above</button><br>
+      </div>
+  
+  <div id="question4"><h4>String values must be enclosed within ___ when being assigned to variables.</h4><br>
+        <button type="button" class="btn btn-primary align-items-center">1: commas</button><br>
+        <button type="button" class="btn btn-primary align-items-center">2: curly brackets</button><br>
+        <button type="button" class="btn btn-primary align-items-center">3: quotes</button><br>
+        <button type="button" class="btn btn-primary align-items-center">4: parenthesis</button><br>
+    </div>
+ 
+  <div id="question5"><h4>A very useful tool during development and debugging for printing content to the debugger is:</h4><br>
+        <button type="button" class="btn btn-primary align-items-center">1: JavaScript</button><br>
+        <button type="button" class="btn btn-primary align-items-center">2: terminal/bash</button><br>
+        <button type="button" class="btn btn-primary align-items-center">3: for loops</button><br>
+        <button type="button" class="btn btn-primary align-items-center">4: console log</button><br>
+      </div> -->
+  </div>
 
   <script src="Assets/script.js"></script>
 </body>
 </html>
+
+    
