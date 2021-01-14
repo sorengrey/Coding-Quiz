@@ -75,7 +75,7 @@ function setTimer() {
   if(secondsLeft === 0){
     clearInterval(timerInterval);
     alert(`Time's up!`);
-    location.href = '/Assets/highscores.html';}
+    location.href = 'https://sorengrey.github.io/code-quiz/Assets/highscores.html';}
 }, 1000);
 }
 
