@@ -10,7 +10,7 @@
 
 <body>
 
-  <!-- Placeholder navbar to keep the pages consistent -->
+  <!-- placeholder navbar to keep the pages consistent -->
   <nav class= "navbar">
     <div class="container-fluid">
       <ul class="navbar-nav">
@@ -22,21 +22,53 @@
     </div> 
   </nav>
 
-    <h2>Highscores</h2>
-<br>
-    <div class="container" id="buttons">
-      <div class="row">
-        <div class="col text-center">
-      <!-- Go Back button -->
-      <a button type="button" class="btn btn-primary align-items-center" href="../index.html" id="backbutton">Go Back</button></a>
-      <!-- Clear Highscores button -->
-      <button type="button" class="btn btn-primary align-items-center" id="startbutton">Clear Highscores</button>
+  <div id="highscore-title"><h2>Highscores</h2></div>
+  <br>
+  <div class="container">
+    <div id="done"><h4>All done!</h4>
+    <!-- displays final score -->
+    <div id="final-score">Your final score is:
+    </div>
+   </div>
+  </div>
+  
+  <!-- high score list -->  
+  <div class="container">
+     <div class="flex-column flex-center">
+      <ol id="namelist">
+      </ol>
+    </div>
+  </div>
+
+  <div class="container-sm align-items-center" id="userScore">
+    <div class="row">
+      <div class="col text-center" id="twobuttons">
+        <!-- Go Back button -->
+        <a button type="button" class="btn btn-primary align-items-center" href="../index.html" id="backbutton">Go Back</button></a>
+        <!-- Clear Highscores button -->
+        <button type="button" class="btn btn-primary align-items-center" id="clearbutton">Clear Highscores</button>
         </div>
       </div>
+
+  <!-- the form to enter initials -->
+  <div class="row" id="submit-form">
+    <div class="col text-center">
+      <form class="form">
+        <label for="initials">Enter initials</label>
+        <input type="text" id="inits">
+        <button type="button" class="btn btn-primary" id="submit-button">Submit</button>
+     </form>
     </div>
+ </div>
 
-<div id="done"><h4>All done!</h4></div>
+<script>
+  //hides the Go Back and Clear Highscores buttons initially
+  document.getElementById('twobuttons').style.display = 'none';
 
-  <script src="script.js"></script>
-</body>
+  // hides the Highcores H2 initially
+  document.getElementById('highscore-title').style.display = 'none';
+</script>
+
+    <script src="script.js"></script>
+  </body>
 </html>
