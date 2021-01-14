@@ -66,7 +66,6 @@ var correctAnswers = [
   "console log"
 ]
 
-
 // starts the timer at 75
 function setTimer() {
   var timerInterval = setInterval(function() {
@@ -75,7 +74,7 @@ function setTimer() {
   if(secondsLeft === 0){
     clearInterval(timerInterval);
     alert(`Time's up!`);
-    location.href = 'https://sorengrey.github.io/code-quiz/Assets/highscores.html';}
+    location.href = '/Assets/highscores.html';}
 }, 1000);
 }
 
@@ -134,9 +133,9 @@ function startQuestions(q_num, userScore){
     }
   }
 
-  // not working properly -- userScore disappears after moving to highscore page
+  // not working properly -- errors -- userScore disappears after moving to highscore page
   function endQuiz(userScore){
-    window.location.href  = '/Assets/highscores.html';
+    window.location.href  = 'Assets/highscores.html';
     window.addEventListener('DOMContentLoaded', function(){
       document.querySelector("#userScore").innerHTML = userScore;
       console.log("final userScore " + userScore);
