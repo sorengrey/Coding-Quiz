@@ -1,11 +1,15 @@
+
 // timer
 var time = document.getElementById("timer");
 
-// start button
-var startButton = document.querySelector("#startbutton");
+// submit button
+var submitButton = document.getElementById("submit-button");
+
+// clear highscores button
+var clearButton = document.querySelector("#clearbutton");
 
 // time set to 75 seconds
-var secondsLeft = 5;
+var secondsLeft = 75;
 
 // user score initially set to 0
 var userScore = 0;
@@ -22,6 +26,7 @@ var questionArray = [
   "A very useful tool during development and debugging for printing content to the debugger is:"
 ];
 
+// answers
 var buttonAnswers = [
   [
     "strings",
@@ -52,107 +57,113 @@ var buttonAnswers = [
   ]
 ];
 
+// correct answers
+var correctAnswers = [
+  "alerts",
+  "parenthesis",
+  "all of the above",
+  "quotes",
+  "console log"
+]
 
 
-
-// starts the timer at 75 and decrements by one every second, stopping at 0
+// starts the timer at 75
 function setTimer() {
   var timerInterval = setInterval(function() {
   secondsLeft--;
   time.innerHTML = "Time: " + secondsLeft;
   if(secondsLeft === 0){
     clearInterval(timerInterval);
-    window.location.href = 'https://sorengrey.github.io/code-quiz/Assets/highscores.html';}
+    alert(`Time's up!`);
+    location.href = '/Assets/highscores.html';}
 }, 1000);
 }
 
-/* use this logic later
-function take10() {
-  secondsLeft - 10;
+function startQuestions(q_num, userScore){
+  var ques = document.getElementById("questions");
+  var btn1 = document.getElementById('btn1');
+  var btn2 = document.getElementById('btn2');
+  var btn3 = document.getElementById('btn3');
+  var btn4 = document.getElementById('btn4');
+  if(q_num === 5){
+    
+    endQuiz(userScore)
+  }  
+  else {
+     //sets inner html of the buttons to the question based on index
+    btn1.innerHTML = buttonAnswers[q_num][0];
+    btn2.innerHTML = buttonAnswers[q_num][1];
+    btn3.innerHTML = buttonAnswers[q_num][2];
+    btn4.innerHTML = buttonAnswers[q_num][3];
+    ques.innerHTML = questionArray[q_num];
+  }
+    
+  //adds to the userScore if correct
+  btn1.onclick = function(){
+    var correct = checkAnswer(q_num, btn1.innerHTML);
+    userScore = userScore + correct;
+    startQuestions(q_num + 1, userScore);
 }
 
-// use this logic later
-als1.addEventListener("click", function(){
-    userScore++;
-    console.log(userScore);
-  }); */
+  btn2.onclick = function(){
+    var correct = checkAnswer(q_num, btn2.innerHTML);
+    userScore = userScore + correct;
+    startQuestions(q_num + 1, userScore);
+  }
 
-// event listener and quiz start function, hides elements once quiz starts
-startButton.addEventListener("click", function(){
-    document.getElementById('quiz-title').style.display = 'none';
-    document.getElementById('intro').style.display = 'none';
-    document.getElementById('startbutton').style.display = 'none';
-   // document.getElementById('question1').style.display = 'block';
-    setTimer();
-    // the loop
-    for(i = 0; i < questionArray.length; i++){
-      var answer = startQuestions(i);
+  btn3.onclick = function(){
+    var correct = checkAnswer(q_num, btn3.innerHTML);
+    userScore = userScore + correct;
+    startQuestions(q_num + 1, userScore);
+  }
+
+  btn4.onclick = function(){
+    var correct = checkAnswer(q_num, btn4.innerHTML);
+    userScore = userScore + correct;
+    startQuestions(q_num + 1, userScore);
+  }
+
+  // takes the user's guess and checks to see if it's correct, returning 1 for correct, 0 for incorrect
+  function checkAnswer(q_num, guess) {
+    if(guess === correctAnswers[q_num]){
+      return 1;
+    }
+    else {
+      secondsLeft = secondsLeft - 10;
+      return 0;
+    }
+  }
+
+  // not working properly -- userScore disappears after moving to highscore page
+  function endQuiz(userScore){
+    window.location.href  = '/Assets/highscores.html';
+    window.addEventListener('DOMContentLoaded', function(){
+      document.querySelector("#userScore").innerHTML = userScore;
+      console.log("final userScore " + userScore);
+    })
+  }
 }
+
+// submit button function
+ submitButton.addEventListener("click", function(){
+   var list = document.getElementById('namelist');
+   var initials = document.getElementById('inits').value + " " + userScore;
+   var entry = document.createElement('li');
+   entry.appendChild(document.createTextNode(initials));
+   list.appendChild(entry);
+   document.getElementById('twobuttons').style.display = 'block';
+   document.getElementById('submit-form').style.display = 'none';
+   document.getElementById('highscore-title').style.display = 'block';
+   document.getElementById('done').style.display = 'none';
+   //document.getElementById('final-score').style.display = 'none';
+ }); 
+
+// clear button function
+clearButton.addEventListener("click", function(){
+ document.getElementById('namelist').innerHTML = '';
 });
 
 
-/*
-
- //the questions and answers array
- var questionArray = [
-  {
-    question: "Commonly used data types DO NOT include:",
-    answers: {
-      a: "strings",
-      b: "booleans",
-      c: "alerts",
-      d: "numbers",
-    },
-    correctAnswer: "c"
-  },
-  {
-    question: "The condition in an if/else statement is enclosed within ___.",
-    answers: {
-      a: "quotes",
-      b: "parenthesis",
-      c: "curly brackets",
-      d: "square brackets",
-    },
-    correctAnswer: "c"
-  },
-  {
-    question: "Arrays in JavaScript can be used to store ___.",
-    answers: {
-      a: "numbers and strings",
-      b: "other arrays",
-      c: "booleans",
-      d: "all of the above",
-  },
-    correctAnswer: "d"
-  },
-  {
-    question: "String values must be enclosed within ___ when being assigned to variables.",
-    answers: {
-      a: "commas",
-      b: "curly brackets",
-      c: "quotes",
-      d: "parenthesis",
-    },
-    correctAnswer: "c"
-  },
-  {
-    question: "A very useful tool during development and debugging for printing content to the debugger is:",
-    answers: {
-      a: "JavaScript",
-      b: "terminal/bash",
-      c: "for loops",
-      d: "console log",
-    },
-    correctAnswer: "d"
-  }
-]
-
-
-* a timer function that stops the quiz when it runs out
-* a function that awards points for a correct answer (might need one for each question)
-* a clear high scores button
-* a submit textarea and button for user initials
-* an event listener for when the user clicks the answers
-* an event listener for when the user submits their initials
-* 'correct' or 'incorrect' text that is printed under the quiz answers
-* The questions and answers as buttons */
+/*  This needs --
+* for the userScore to stop disappearing when we load the highscore page
+* 'correct' or 'incorrect' text that is printed under the quiz answers */
