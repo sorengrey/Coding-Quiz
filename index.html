@@ -30,6 +30,7 @@
   <br>
   Keep in mind incorrect answers will penalize your scoretime by ten seconds!</p>
 
+  <!-- the start button -->
   <div class="container" id="start-quiz">
     <div class="row">
       <div class="col text-center">
@@ -38,116 +39,53 @@
     </div>
   </div>
 
- 
-
   <!-- the questions container -->
-  <div class="container-sm align-items-center" id="questions">
+  <div class="container" id="questions"></div>
+
+  <!-- the buttons container -->
+  <div class="container-sm" id="button-holder">
+    <button id="btn1" type="button">1</button><br>
+    <button id="btn2" type="button">2</button><br>
+    <button id="btn3" type="button">3</button><br>
+    <button id="btn4" type="button">4</button>
+  </div>
+  
   <!-- JavaScript functionality -->
     <script>
 
-      function createButtons(){
-        var ques = document.getElementById("questions");
-        ques.innerHTML = questionArray[i];
+      //sets the buttons as hidden initially
+      document.getElementById('button-holder').style.display= 'none';
 
-        var btn1 = document.createElement("BUTTON");
-        btn1.innerHTML = buttonAnswers[0][0];
-        document.body.appendChild(btn1);
-
-        var btn2 = document.createElement("BUTTON");
-        btn2.innerHTML = buttonAnswers[0][1];
-        document.body.appendChild(btn2);
-
-        var btn3 = document.createElement("BUTTON");
-        btn3.innerHTML = buttonAnswers[0][2];
-        document.body.appendChild(btn3);
-
-        var btn4 = document.createElement("BUTTON");
-        btn4.innerHTML = buttonAnswers[0][3];
-        document.body.appendChild(btn4);
-      }
-
-      function startQuestions(i){
-        var ques = document.getElementById("questions");
-        ques.innerHTML = questionArray[i];
-        
-        var btn1 = document.createElement("BUTTON");
-         btn1.innerHTML = buttonAnswers[i][0];
-        document.body.appendChild(btn1);
-
-        var btn2 = document.createElement("BUTTON");
-        btn2.innerHTML = buttonAnswers[i][1];
-        document.body.appendChild(btn2);
-
-        var btn3 = document.createElement("BUTTON");
-        btn3.innerHTML = buttonAnswers[i][2];
-        document.body.appendChild(btn3);
-
-        var btn4 = document.createElement("BUTTON");
-        btn4.innerHTML = buttonAnswers[i][3];
-        document.body.appendChild(btn4);
-
-        btn4.onclick = function(){
-          console.log(btn4.innerHTML)
-          return btn4.innerHTML;
-        
-     // document.getElementById("demo").innerHTML = "Question 2"; 
-    //  return false; -->
-        }
-    };
-
+      var startButton = document.querySelector("#startbutton");
+      startButton.onclick = function(){
+      document.getElementById('quiz-title').style.display = 'none';
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('startbutton').style.display = 'none';
+      document.getElementById('button-holder').style.display= 'block';
+      setTimer();
+      startQuestions(0, userScore);
+}
       
+
     </script>
 
 
+ <!-- 
+// <p id="demo">Hello</p>
+//     <button id="btn" type="button">Try it</button>
+
+//     <script>
+//         document.getElementById('btn').onclick = function() {
+//             document.getElementById('demo').innerHTML = 'Hey There';
+//         }
+//     </script> -->
 
 
 
-
-
-
-
-
-
-
-
-        <!--
-      <div id="question1"><h4>Commonly used data types DO NOT include:</h4><br>
-        <button type="button" class="btn btn-primary align-items-center">1: strings</button><br>
-        <button type="button" class="btn btn-primary align-items-center">2: booleans</button><br>
-        <button type="button" class="btn btn-primary align-items-center">3: alerts</button><br>
-        <button type="button" class="btn btn-primary align-items-center">4: numbers</button><br>
-        </div>
-    
-  <div id="question2"><h4>The condition in an if/else statement is enclosed within ___:</h4><br>
-        <button type="button" class="btn btn-primary align-items-center">1: quotes</button><br>
-        <button type="button" class="btn btn-primary align-items-center">2: parenthesis</button><br>
-        <button type="button" class="btn btn-primary align-items-center">3: curly brackets</button><br>
-        <button type="button" class="btn btn-primary align-items-center">4: square brackets</button><br>
-      </div>
-  
-  <div id="question3"><h4>Arrays in JavaScript can be used to store ___.</h4><br>
-        <button type="button" class="btn btn-primary align-items-center">1: numbers and strings</button><br>
-        <button type="button" class="btn btn-primary align-items-center">2: other arrays</button><br>
-        <button type="button" class="btn btn-primary align-items-center">3: booleans</button><br>
-        <button type="button" class="btn btn-primary align-items-center">4: all of the above</button><br>
-      </div>
-  
-  <div id="question4"><h4>String values must be enclosed within ___ when being assigned to variables.</h4><br>
-        <button type="button" class="btn btn-primary align-items-center">1: commas</button><br>
-        <button type="button" class="btn btn-primary align-items-center">2: curly brackets</button><br>
-        <button type="button" class="btn btn-primary align-items-center">3: quotes</button><br>
-        <button type="button" class="btn btn-primary align-items-center">4: parenthesis</button><br>
-    </div>
- 
-  <div id="question5"><h4>A very useful tool during development and debugging for printing content to the debugger is:</h4><br>
-        <button type="button" class="btn btn-primary align-items-center">1: JavaScript</button><br>
-        <button type="button" class="btn btn-primary align-items-center">2: terminal/bash</button><br>
-        <button type="button" class="btn btn-primary align-items-center">3: for loops</button><br>
-        <button type="button" class="btn btn-primary align-items-center">4: console log</button><br>
-      </div> -->
-  </div>
+   </div>
 
   <script src="Assets/script.js"></script>
+ <!-- <script src="Assets/highscores.js"></script> -->
 </body>
 </html>
 
