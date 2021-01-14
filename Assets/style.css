@@ -1,11 +1,25 @@
-h1 {
+*{
+  box-sizing: border-box; }
+
+h1, h2, h4, p, #final-score {
     text-align: center;
 }
 
-h2 {
-    text-align: center;
+#intro, #questions {
+    font-weight: bold;
+    font-size: 20px;
 }
 
-p {
-    text-align: center;
+#button-holder {
+    font-size: 16px;
+}
+
+#btn1, #btn2, #btn3, #btn4, #backbutton, #clearbutton, #startbutton, #submit-button {
+    background-color: #4d2996;
+    color:white;
+    border-radius: 5px;
+}
+
+.nav-link {
+    color:  #4d2996;
 }
