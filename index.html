@@ -50,23 +50,28 @@
     <button id="btn4" type="button">4</button>
   </div>
   
+<div id="rightwrong">
+  <span id="thatsright"></span>
+</div>
+
+
   <!-- JavaScript functionality -->
     <script>
-
       //sets the buttons as hidden initially
       document.getElementById('button-holder').style.display= 'none';
 
+      //sets the right and wrong div as hidden initially
+      document.getElementById('rightwrong').style.display = 'none';
+
       var startButton = document.querySelector("#startbutton");
       startButton.onclick = function(){
-      document.getElementById('quiz-title').style.display = 'none';
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('startbutton').style.display = 'none';
-      document.getElementById('button-holder').style.display= 'block';
-      setTimer();
-      startQuestions(0, userScore);
+        document.getElementById('quiz-title').style.display = 'none';
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('startbutton').style.display = 'none';
+        document.getElementById('button-holder').style.display= 'block';
+        setTimer();
+        startQuestions(0, userScore);
 }
-      
-
     </script>
 
 
