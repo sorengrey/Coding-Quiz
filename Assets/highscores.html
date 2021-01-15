@@ -27,7 +27,7 @@
   <div class="container">
     <div id="done"><h4>All done!</h4>
     <!-- displays final score -->
-    <div id="final-score">Your final score is:
+    <div id="final-score">Your final score is:<script>userScore</script>
     </div>
    </div>
   </div>
@@ -41,9 +41,8 @@
        </div>
     </div>
   </div>
-  
 
-  <div class="container-sm align-items-center" id="userScore">
+  <div class="container-sm align-items-center" id="score"></div>
     <div class="row">
       <div class="col text-center" id="twobuttons">
         <!-- Go Back button -->
@@ -70,8 +69,12 @@
 
   // hides the Highcores H2 initially
   document.getElementById('highscore-title').style.display = 'none';
+
+  //
+  userScore = localStorage.getItem("userScore");
 </script>
 
-    <script src="script.js"></script>
+    
   </body>
+  <script src="script.js"></script>
 </html>
