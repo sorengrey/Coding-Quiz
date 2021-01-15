@@ -49,20 +49,16 @@
     <button id="btn3" type="button">3</button><br>
     <button id="btn4" type="button">4</button>
   </div>
-  
-<div id="rightwrong">
-  <span id="thatsright"></span>
-</div>
 
+  <div id="mydiv"></div>
 
   <!-- JavaScript functionality -->
     <script>
       //sets the buttons as hidden initially
       document.getElementById('button-holder').style.display= 'none';
 
-      //sets the right and wrong div as hidden initially
-      document.getElementById('rightwrong').style.display = 'none';
 
+      //the start button's functionality
       var startButton = document.querySelector("#startbutton");
       startButton.onclick = function(){
         document.getElementById('quiz-title').style.display = 'none';
@@ -73,20 +69,6 @@
         startQuestions(0, userScore);
 }
     </script>
-
-
- <!-- 
-// <p id="demo">Hello</p>
-//     <button id="btn" type="button">Try it</button>
-
-//     <script>
-//         document.getElementById('btn').onclick = function() {
-//             document.getElementById('demo').innerHTML = 'Hey There';
-//         }
-//     </script> -->
-
-
-
    </div>
 
   <script src="Assets/script.js"></script>
